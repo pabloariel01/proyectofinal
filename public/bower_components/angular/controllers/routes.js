@@ -3,20 +3,19 @@ var m = angular.module('tfa', ['ngRoute','ui.grid','angular.morris-chart','chart
 // var myApp = angular.module('tfa');
 	.config(function($routeProvider) {
 		$routeProvider
-			//RUTAS DE USUARIOS
+			//Home
 			.when('/',{
-				templateUrl: 'index.php/prueba/index2/',
-				controller : ""
+				templateUrl: 'prueba/index3',
+				controller : "menuController"
 			})
 
 			.when('/home',{
 				templateUrl: 'index.php/prueba/index3/',
 				controller : "menuController"
 			})
-			
+
 			.otherwise({
 		        redirectTo: '/'
 		    });
-		
-	});
 
+	});

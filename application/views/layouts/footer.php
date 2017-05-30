@@ -1,6 +1,7 @@
-
-    <!-- </div> -->
-    <!-- /#wrapper -->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <footer>
                 

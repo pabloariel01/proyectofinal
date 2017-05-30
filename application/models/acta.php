@@ -45,7 +45,7 @@ class Acta extends CI_Model {
             $this->db->join('localidad','`campaña-localidad`.`localidad_id` = `localidad`.`idlocalidad`');
             $this->db->select('localidad.idlocalidad');
             //agregar un where para id de acta
-            $where="acta.id = "$value;
+            $where="acta.id = ".$value;
             $this->db->where($where);
             $query=$this->db->get_where();
 
