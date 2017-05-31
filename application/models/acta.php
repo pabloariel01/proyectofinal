@@ -16,7 +16,17 @@ class Acta extends CI_Model {
             return $query->result();
         }
 
+        //trae id de campana por acta
+        public function getIdcamp($value=FALSE){
+            $this->db->from('`campaña`');
+            $this->db->select('`campaña`.`idcampaña` as id');
 
+            $where="acta_id=".$value;
+            $this->db->where($where);
+            $query = $this->db->get_where();
+
+            return $query->result_array();
+        }
         //localidades en donde se pesco en la campana
         //agregar parametro de entrada
         public function getLocalidadesxcamp($value=FALSE)
@@ -28,8 +38,8 @@ class Acta extends CI_Model {
             $this->db->select('localidad.iniciales, localidad.idlocalidad');
             $where = "campaña.idcampaña=".$value;
             $this->db->where($where);
-            
-            
+
+
             $query = $this->db->get_where();
 
 
@@ -56,7 +66,7 @@ class Acta extends CI_Model {
         {
             $this->db->from('localidad')
                     ->select('iniciales')
-                    
+
                     ->where('idlocalidad=', $value);
                     $query=$this->db->get_where();
                     return ($query->row_array());
@@ -78,11 +88,10 @@ class Acta extends CI_Model {
                     $this->db->where('localidad.idlocalidad=', $value);
                     }
                     $query=$this->db->get_where();
-                    return ($query->row_array());            
+                    return ($query->row_array());
         }
 
-        
+
 
 
 }
-

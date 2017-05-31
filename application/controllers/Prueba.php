@@ -66,9 +66,13 @@ class Prueba extends CI_Controller {
 	public function especies()
 	{
 		$r = $this->request();
-		echo (json_encode($this->tablaTotales->getFullTable1($r["acta"]),JSON_NUMERIC_CHECK));
+		echo (json_encode($this->tablaTotales->getFullTable1($r["acta"],$r["campania"]),JSON_NUMERIC_CHECK));
 	}
 
+	public function getCamps(){
+		$r= $this->request();
+		echo (json_encode($this->acta->getIdcamp($r["acta"]),JSON_NUMERIC_CHECK));
+	}
 	public function getTotales()
 	{
 		echo (json_encode($this->tablaTotales->getTotal(),JSON_NUMERIC_CHECK));

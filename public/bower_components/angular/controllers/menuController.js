@@ -2,14 +2,15 @@ m.controller('menuController', function($scope,$http) {
 //$scope.var='hola';
 
 // alert('asd');
-$scope.titulo='Resumen de Capturas'
+$scope.titulo='Resumen de Capturas';
 $scope.vector_especies = [];
 $scope.acta=24;
-
+$scope.form={};
+$scope.form.b=[];
 //trae un array con las especies y las cantidades
 $scope.tabla_especies = function(){
     if (toggle){
-        $http.post('prueba/especies',{'acta':1}).success(function(data){
+        $http.post('prueba/especies',{'acta':1,'campania':""}).success(function(data){
         $scope.vector_especies=data;
         });
     toggle=false;
@@ -31,9 +32,17 @@ $scope.actas=[];
 $scope.actas_busqueda = function(){
     $http.post('prueba/traeractas').success(function(data){
         $scope.actas = data;
-        // console.log($scope.data);
+        // console.log(data);
     });
 }
+$scope.camps=[];
+$scope.getCamps= function() {
+  $http.post('prueba/getCamps',{'acta':1}).success(function(data){
+      $scope.camps=data;
+      // console.log(data);
+  });
+}
+
 
 // TOTAL GENERAL
 $scope.total=0
@@ -68,21 +77,23 @@ $scope.getlocalidades();
 $scope.getTotales();
 $scope.actas_busqueda();
 $scope.tabla_especies();
+$scope.getCamps();
+console.log($scope.camps);
+console.log($scope.vector_especies);
 
- 
 // Morris.Line({
 //   element: 'line-example',
 //   data: 'vector_especies',
 //   xkey: 'descripcion',
 //   ykeys: ["ITU", "ITA","ABR","PGO"],
 //   labels: ["itu", "ita","abr","pgo"]
- 
-  
+
+
 // });
 
 // class="line-chart"
 //                               line-chart
-//                               line-post-units="'%'"  
+//                               line-post-units="'%'"
 //                               line-data='vector_especies'
 //                               line-xkey='descripcion'
 //                               line-ykeys='["ITU", "ITA","ABR","PGO"]'
