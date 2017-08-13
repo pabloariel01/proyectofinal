@@ -29,12 +29,12 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url('public/bower_components/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
 
-    <link href="<?php echo base_url('public/bower_components/angular-ui-select/dist/select.min.css');?>" rel="stylesheet"> 
+    <link href="<?php echo base_url('public/bower_components/angular-ui-select/dist/select.min.css');?>" rel="stylesheet">
 
       <!-- ANGULARJS!-->
 
     <!-- <script src="<?php echo base_url('public/node_modules/angular-ui-grid/node_modules/angular/angular.js');?>"></script> -->
-    <script src="<?php echo base_url('public/bower_components/angular/angular.js');?>"></script> 
+    <script src="<?php echo base_url('public/bower_components/angular/angular.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular/angular-route.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular-route/angular-route.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular-bootstrap/ui-bootstrap.min.js');?>"></script>
@@ -77,7 +77,7 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-             
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -205,11 +205,11 @@
                     <!-- /.sidebar-collapse -->
                 </div>
                 <!-- /.navbar-static-side -->
-                
-        
+
+
             </nav>
 
-            <div class="col-md-10" id="page-wrapper">         
+            <div class="col-md-10" id="page-wrapper">
                 <div id="content">
                     <div class="row-fluid">
                         <!-- block -->
