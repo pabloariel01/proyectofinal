@@ -5,14 +5,15 @@ var m = angular.module('tfa', ['ngRoute','ui.grid','angular.morris-chart','chart
 		$routeProvider
 			//Home
 			.when('/',{
-				templateUrl: 'prueba/index3',
+				templateUrl: 'vistas/resumenCapturas',
+				controller : "menuController"
+			})
+			.when('vistas',{
+				templateUrl: 'vistas/resumenCapturas',
 				controller : "menuController"
 			})
 
-			.when('/home',{
-				templateUrl: 'index.php/prueba/index3/',
-				controller : "menuController"
-			})
+
 
 			.otherwise({
 		        redirectTo: '/'
