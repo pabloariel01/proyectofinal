@@ -51,14 +51,14 @@
                             <!-- /input-group -->
                         <!-- </li> -->
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Resumen de Capturas</a>
+                            <a href ng-click="traertablaespecies()"><i class="fa fa-table fa-fw"></i> Resumen de Capturas</a>
                         </li>
 
                         <li>
-                            <a href="index.html"><i class="fa fa-table fa-fw"></i> Total y peso por Localidad</a>
+                            <a href ng-click="totalypesoporloc()"><i class="fa fa-table fa-fw"></i> Total y peso por Localidad</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-table fa-fw"></i> Total y peso por Localidad</a>
+                            <a href="index.html"><i class="fa fa-table fa-fw"></i>{{titulo}} Total y peso por Localidad</a>
                         </li>
                         <li>
                             <a href="index.html"><i class="fa fa-table fa-fw"></i> suma CPUE por Localidad</a>
@@ -151,4 +151,4 @@
             <div id="content">
                 <div class="row-fluid">
                     <!-- block -->
-                    <div class="block">
+                    <div ng-include="template.url" class="block">

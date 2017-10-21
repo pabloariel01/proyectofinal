@@ -4,7 +4,7 @@ class Login extends CI_Controller {
 
     function index() {
       if( $this->session->userdata('isLoggedIn') ) {
-          redirect('vistas');
+          redirect('vistas/');
       } else {
           $this->show_login(false);
       }
@@ -19,28 +19,29 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 // ///////////////////////////
 
-if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == FALSE) {
 
-        $this->show_login(true);
-        print('falla');
-      } else {
+          $this->show_login(true);
+        // print('falla');
+        } else {
 
-        print_r('anda');
+        // print_r('anda');
 /////////////////////////////////////
 
         // Grab the email and password from the form POST
-        $user = $this->input->post('usuario');
-        $pass  = $this->input->post('password');
-        print_r($user);
-        //Ensure values exist for email and pass, and validate the user's credentials
-        if( $user && $pass && $this->Usuario->validate_user($user,$pass)) {
-            // If the user is valid, redirect to the main view
-            redirect('vistas');
-        } else {
+          $user = $this->input->post('usuario');
+          $pass  = $this->input->post('password');
+          //este para testing
+          // print_r($user);
+          //Ensure values exist for email and pass, and validate the user's credentials
+          if( $user && $pass && $this->Usuario->validate_user($user,$pass)) {
+              // If the user is valid, redirect to the main view
+              redirect('vistas');
+            } else {
             // Otherwise show the login screen with an error message.
             $this->show_login(true);
-        }
-    }
+            }
+      }
 }
 
 
@@ -59,12 +60,12 @@ if ($this->form_validation->run() == FALSE) {
     function logout_user() {
       $this->session->sess_destroy();
       // $this->index();
-      redirect('/login');
+      redirect('/');
     }
 
-    function showphpinfo() {
-        echo phpinfo();
-    }
+    // function showphpinfo() {
+    //     echo phpinfo();
+    // }
 
 
 }

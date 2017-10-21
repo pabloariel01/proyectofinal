@@ -37,6 +37,7 @@
     <script src="<?php echo base_url('public/bower_components/angular/angular.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular/angular-route.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular-route/angular-route.js');?>"></script>
+    <script src="<?php echo base_url('public/bower_components/angular/angular-sanitize.min.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular-bootstrap/ui-bootstrap.min.js');?>"></script>
 
     <link rel="styleSheet" href="<?php echo base_url('public/node_modules/angular-ui-grid/ui-grid.min.css');?>"/>
@@ -60,5 +61,3 @@
 </head>
 
 <body>
-
-    

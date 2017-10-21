@@ -22,12 +22,15 @@ class Vistas extends CI_Controller {
 		$this->load->view('layouts/plantilla',$data);
 	}
 
-
+	public function inicio(){
+		$data['data']['titulo'] = 'pfc';
+		$this->load->view('layouts/sidebar');
+		// $this->load->view('menu/resumenCapturas');
+	}
 	public function resumenCapturas(){
 		$data['data']['titulo'] = 'pfc';
-
+		// $this->load->view('layouts/sidebar');
 		$this->load->view('menu/resumenCapturas');
-
 	}
 
 }

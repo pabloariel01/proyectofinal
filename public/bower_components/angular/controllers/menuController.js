@@ -2,11 +2,26 @@ m.controller('menuController', function($scope,$http) {
 //$scope.var='hola';
 
 // alert('asd');
+
 $scope.titulo='Resumen de Capturas';
 $scope.vector_especies = [];
 $scope.acta=24;
 $scope.form={};
 $scope.form.b=[];
+
+$scope.templates =
+  [{ name: 'template1.html', url: 'vistas/resumenCapturas'},
+   { name: 'template2.html', url: 'template2.html'}];
+$scope.template = $scope.templates[0];
+
+$scope.traertablaespecies=function() {
+  $http.get('vistas/resumenCapturas').then(function successCallback(data) {
+    console.log(data.data);
+    $scope.vistas=data.data;
+  });
+  toggle=true;
+  $scope.tabla_especies();
+}
 //trae un array con las especies y las cantidades
 $scope.tabla_especies = function(){
     if (toggle){
@@ -64,7 +79,7 @@ $scope.getlocalidades = function(){
 }
 $scope.totalPorLoc = function(){
     $http.post('prueba/totalPorLoc',{'input':"1"}).success(function(data){
-        console.log( data);
+        // console.log( data);
          // console.log($scope.localidades);
     });
 }
@@ -78,9 +93,26 @@ $scope.getTotales();
 $scope.actas_busqueda();
 $scope.tabla_especies();
 $scope.getCamps();
-console.log($scope.camps);
-console.log($scope.vector_especies);
+// console.log($scope.camps);
+// console.log($scope.vector_especies);
 
+
+// ///////////////////
+//totalypesoporloc
+/////////////////////
+$scope.totalypesoporloc=function(){
+
+        $http.post('prueba/totalypesoporloc/1/1').success(function(data){
+            $scope.vector_especies=data;
+            console.log(data);
+        });
+
+        $http.post('prueba/totalypesoporloc/1/1').then(function(data) {console.log(data);}, function(data, headersGetter, status) {console.log(status);
+        });
+}
+
+
+// alert("asd");
 // Morris.Line({
 //   element: 'line-example',
 //   data: 'vector_especies',
