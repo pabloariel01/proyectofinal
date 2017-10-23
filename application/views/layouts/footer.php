@@ -26,7 +26,7 @@
     <script src="<?php echo base_url('public/bower_components/angular-ui-select/dist/select.min.js');?>"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="<?php echo base_url('public/dist/js/sb-admin-2.js');?>"></script>
+    <!-- <script src="<?php echo base_url('public/dist/js/sb-admin-2.js');?>"></script> -->
 
 </body>
 

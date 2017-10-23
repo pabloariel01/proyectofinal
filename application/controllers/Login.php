@@ -4,7 +4,7 @@ class Login extends CI_Controller {
 
     function index() {
       if( $this->session->userdata('isLoggedIn') ) {
-          redirect('vistas/');
+          redirect('vistas/inicio');
       } else {
           $this->show_login(false);
       }

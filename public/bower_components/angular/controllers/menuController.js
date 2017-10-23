@@ -10,17 +10,21 @@ $scope.form={};
 $scope.form.b=[];
 
 $scope.templates =
-  [{ name: 'template1.html', url: 'vistas/resumenCapturas'},
-   { name: 'template2.html', url: 'template2.html'}];
-$scope.template = $scope.templates[0];
+  [{ name: 'resumenCapturas', url: 'vistas/resumenCapturas'},
+   { name: 'template2.html', url: 'vistas/totalypesoporloc'},
+   { name: 'sumcpueloc', url: 'vistas/sumcpueloc'}
+  ];
+
 
 $scope.traertablaespecies=function() {
-  $http.get('vistas/resumenCapturas').then(function successCallback(data) {
-    console.log(data.data);
-    $scope.vistas=data.data;
-  });
+  // $http.get('vistas/resumenCapturas').then(function successCallback(data) {
+  //   // console.log(data.data);
+  //   $scope.vistas=data.data;
+  // });
   toggle=true;
   $scope.tabla_especies();
+  $scope.template = $scope.templates[0];
+
 }
 //trae un array con las especies y las cantidades
 $scope.tabla_especies = function(){
@@ -102,14 +106,98 @@ $scope.getCamps();
 /////////////////////
 $scope.totalypesoporloc=function(){
 
-        $http.post('prueba/totalypesoporloc/1/1').success(function(data){
-            $scope.vector_especies=data;
-            console.log(data);
-        });
+        // $http.post('prueba/totalypesoporloc/1/1').success(function(data){
+        //     $scope.vector_especies=data;
+        //     console.log(data);
+        // });
 
-        $http.post('prueba/totalypesoporloc/1/1').then(function(data) {console.log(data);}, function(data, headersGetter, status) {console.log(status);
+        $http.post('prueba/totalypesoporloc',{'loc':'3','acta':'1'}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(status);
         });
 }
+
+$scope.sumcpueloc=function(){
+        $http.post('prueba/sumcpueloc',{'loc':'1','acta':'1'}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+
+//segundo parametro es opt, puede ser cpue o cpueg
+$scope.cuboCpueEspecies=function(){
+        $http.post('prueba/cuboCpueEspecies',{'loc':'1','opt':'cpue'}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+
+$scope.rangocpuelst=function(){
+        $http.post('prueba/rangocpuelst',{'loc':'1'}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+
+$scope.cuentaSexoEsp=function(){
+        $http.post('prueba/cuentaSexoEsp',{'loc':'1','acta':'1'}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+
+$scope.cuentaGonada=function(){
+        $http.post('prueba/cuentaGonada',{'loc':'1'}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+//sexo 1=m 2=f
+$scope.cuentaGonadaSexo=function(){
+        $http.post('prueba/cuentaGonadaSexo',{'loc':'1','sexo':1}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+
+$scope.cuentaEspGonada=function(){
+        $http.post('prueba/cuentaEspGonada',{'loc':'1','sexo':1}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+
+$scope.rgsXCien=function(){
+        $http.post('prueba/rgsXCien',{'loc':'1'}).then(function(data) {
+              console.log(data);
+              $scope.template = $scope.templates[1];
+              $scope.vector_especies1=data.data;
+            }, function(data, headersGetter, status) {console.log(data.data);
+        });
+}
+
+
+
+
+
+
+
 
 
 // alert("asd");

@@ -24,7 +24,7 @@ class Functions extends CI_Model {
     function sumcpueloc($data,$acta){
         try {
             // $this->db->reconnect();
-            $sql = "CALL `sumcpueloc`(?)";
+            $sql = "CALL `sumcpueloc`(?,?)";
             $result = $this->db->query($sql,array($data,$acta)); // $data included 3 param and binding & query to db
             // $this->db->close();
 

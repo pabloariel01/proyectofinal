@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Prueba extends CI_Controller {
+class Prueba extends Member_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -95,61 +95,56 @@ class Prueba extends CI_Controller {
 
 	}
 
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-// ESTAS FALTAN
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
 
 //parametro es la localidad
-	public function totalypesoporloc($loc,$acta){
+	public function totalypesoporloc(){
 		$r = $this->request();
 		// echo json_encode($r);
-		// echo (json_encode($this->functions->totalypesoporloc($r["input"]),JSON_NUMERIC_CHECK));
-		echo (json_encode($this->functions->totalypesoporloc($loc,$acta),JSON_NUMERIC_CHECK));
+		echo (json_encode($this->functions->totalypesoporloc($r["loc"],$r["acta"]),JSON_NUMERIC_CHECK));
+		// echo (json_encode($this->functions->totalypesoporloc($loc,$acta),JSON_NUMERIC_CHECK));
 	}
 
-	public function sumcpueloc($loc,$acta)	{
+	public function sumcpueloc()	{
 		$r = $this->request();
-		echo (json_encode($this->functions->sumcpueloc($loc,$acta),JSON_NUMERIC_CHECK));
+		echo (json_encode($this->functions->sumcpueloc($r["loc"],$r["acta"]),JSON_NUMERIC_CHECK));
 	}
+
+
 //transformacion de filas por columnas, recibe la loc. y "cpue" o "cpueg"
-	public function cuboCpueEspecies($loc,$opt)	{
+	public function cuboCpueEspecies()	{
 		$r = $this->request();
-		echo (json_encode($this->functions->cuboCpueEspecies($loc,$opt),JSON_NUMERIC_CHECK));
+		echo (json_encode($this->functions->cuboCpueEspecies($r["loc"],$r["opt"]),JSON_NUMERIC_CHECK));
 	}
 
-	public function rangocpuelst($loc)	{
+	public function rangocpuelst()	{
 		$r = $this->request();
-		echo (json_encode($this->functions->rangocpuelst($loc),JSON_NUMERIC_CHECK));
+		echo (json_encode($this->functions->rangocpuelst($r["loc"]),JSON_NUMERIC_CHECK));
 	}
 
-public function cuentaSexoEsp($loc,$acta)	{
+public function cuentaSexoEsp()	{
 	$r = $this->request();
-	echo (json_encode($this->functions->cuentaSexoEsp($loc,$acta),JSON_NUMERIC_CHECK));
+	echo (json_encode($this->functions->cuentaSexoEsp($r["loc"],$r["acta"]),JSON_NUMERIC_CHECK));
 }
 
-public function cuentaGonada($loc)	{
+public function cuentaGonada()	{
 	$r = $this->request();
-	echo (json_encode($this->functions->cuentaGonada($loc),JSON_NUMERIC_CHECK));
+	echo (json_encode($this->functions->cuentaGonada($r["loc"]),JSON_NUMERIC_CHECK));
 }
 
 //recibe paarametro de sexo 1=M 2=F
-public function cuentaGonadaSexo($loc,$sexo)	{
+public function cuentaGonadaSexo()	{
 	$r = $this->request();
-	echo (json_encode($this->functions->cuentaGonadaSexo($loc,$sexo),JSON_NUMERIC_CHECK));
+	echo (json_encode($this->functions->cuentaGonadaSexo($r["loc"],$r["sexo"]),JSON_NUMERIC_CHECK));
 }
 
-public function cuentaEspGonada($loc,$sexo)	{
+public function cuentaEspGonada()	{
 	$r = $this->request();
-	echo (json_encode($this->functions->cuentaEspGonada($loc,$sexo),JSON_NUMERIC_CHECK));
+	echo (json_encode($this->functions->cuentaEspGonada($r["loc"],$r["sexo"]),JSON_NUMERIC_CHECK));
 }
 
-public function rgsXCien($loc)	{
+public function rgsXCien()	{
 	$r = $this->request();
-	echo (json_encode($this->functions->rgsXCien($loc),JSON_NUMERIC_CHECK));
+	echo (json_encode($this->functions->rgsXCien($r["loc"]),JSON_NUMERIC_CHECK));
 }
 
 

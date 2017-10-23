@@ -22,7 +22,7 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url('public/dist/css/sb-admin-2.css');?>" rel="stylesheet">
-
+    <link href="<?php echo base_url('public/dist/css/main.css');?>" rel="stylesheet">
     <!-- Morris Charts CSS -->
     <link href="<?php echo base_url('public/bower_components/morrisjs/morris.css');?>" rel="stylesheet">
 
@@ -38,6 +38,7 @@
     <script src="<?php echo base_url('public/bower_components/angular/angular-route.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular-route/angular-route.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular/angular-sanitize.min.js');?>"></script>
+    <script src="<?php echo base_url('public/bower_components/angular/angular-animate.min.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular-bootstrap/ui-bootstrap.min.js');?>"></script>
 
     <link rel="styleSheet" href="<?php echo base_url('public/node_modules/angular-ui-grid/ui-grid.min.css');?>"/>
@@ -48,6 +49,7 @@
 <!-- ANGULAR CONTROLLERS -->
     <script src="<?php echo base_url('public/bower_components/angular/controllers/routes.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular/controllers/menuController.js');?>"></script>
+    <script src="<?php echo base_url('public/bower_components/angular/controllers/navController.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular/controllers/menuController2.js');?>"></script>
 
 
