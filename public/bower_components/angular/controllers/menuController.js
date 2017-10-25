@@ -184,7 +184,7 @@ $scope.cuentaEspGonada=function(){
 }
 
 $scope.rgsXCien=function(){
-        $http.post('prueba/rgsXCien',{'loc':'1'}).then(function(data) {
+        $http.post('prueba/rgsXCien',{'loc':'3'}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
