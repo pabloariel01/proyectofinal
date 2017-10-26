@@ -12,7 +12,8 @@ $scope.form.b=[];
 $scope.templates =
   [{ name: 'resumenCapturas', url: 'vistas/resumenCapturas'},
    { name: 'template2.html', url: 'vistas/totalypesoporloc'},
-   { name: 'sumcpueloc', url: 'vistas/sumcpueloc'}
+   { name: 'sumcpueloc', url: 'vistas/sumcpueloc'},
+   {name:'abmusers',url:'abmusuario/usuarios'}
   ];
 
 
@@ -191,8 +192,21 @@ $scope.rgsXCien=function(){
             }, function(data, headersGetter, status) {console.log(data.data);
         });
 }
+$scope.callAbmview=function(uri){
+  console.log(uri);
+  alert("");
+  // console.log($scope.templates[3]);
+  $scope.template={url: uri};
+};
+$scope.adduser=function(){
+        $scope.template = $scope.templates[3];
+        // $http.post('abmusuario/usuarios').then(function(data) {
+              // console.log(data);
 
-
+              // $scope.vector_especies1=data.data;
+            // }, function(data, headersGetter, status) {console.log(data.data);
+        // });
+}
 
 
 

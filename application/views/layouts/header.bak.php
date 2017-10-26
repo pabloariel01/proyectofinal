@@ -28,7 +28,8 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url('public/bower_components/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
-
+    <!-- jQuery -->
+    <script src="<?php echo base_url('public/bower_components/jquery/dist/jquery.min.js');?>"></script>
       <!-- ANGULARJS!-->
 
     <script src="<?php echo base_url('public/bower_components/angular/angular.js');?>"></script>

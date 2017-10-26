@@ -59,7 +59,7 @@ if($success_message !== null){?>
 	<div class="tDiv">
 		<?php if(!$unset_add){?>
 		<div class="tDiv2">
-        	<a href='<?php echo $add_url?>' title='<?php echo $this->l('list_add'); ?> <?php echo $subject?>' class='add-anchor add_button'>
+        	<a href ng-click="callAbmview('<?php echo $add_url?>');" title='<?php echo $this->l('list_add'); ?> <?php echo $subject?>' class='add-anchor add_button'>
 			<div class="fbutton">
 				<div>
 					<span class="add"><?php echo $this->l('list_add'); ?> <?php echo $subject?></span>

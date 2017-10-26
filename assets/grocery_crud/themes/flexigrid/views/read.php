@@ -24,6 +24,7 @@
 	<div class='form-div'>
 		<?php
 		$counter = 0;
+
 			foreach($fields as $field)
 			{
 				$even_odd = $counter % 2 == 0 ? 'odd' : 'even';

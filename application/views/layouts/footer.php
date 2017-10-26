@@ -7,8 +7,7 @@
             <footer>
 
             </footer>
-    <!-- jQuery -->
-    <script src="<?php echo base_url('public/bower_components/jquery/dist/jquery.min.js');?>"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url('public/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>

@@ -31,6 +31,8 @@
 
     <link href="<?php echo base_url('public/bower_components/angular-ui-select/dist/select.min.css');?>" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="<?php echo base_url('public/bower_components/jquery/dist/jquery.min.js');?>"></script>
       <!-- ANGULARJS!-->
 
     <!-- <script src="<?php echo base_url('public/node_modules/angular-ui-grid/node_modules/angular/angular.js');?>"></script> -->

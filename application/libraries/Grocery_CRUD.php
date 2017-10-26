@@ -1932,7 +1932,8 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		{
 			if(!empty($field_info->primary_key) && !$this->unset_edit)
 			{
-				return $this->l('insert_success_message')." <a class='go-to-edit-form' href='".$this->getEditUrl($field_info->primary_key)."'>".$this->l('form_edit')." {$this->subject}</a> ";
+				// href ng-click='callAbmview(&quot;".$this->getEditUrl($field_info->primary_key)."&quot;);'
+				return $this->l('insert_success_message')." <p class='go-to-edit-form' >".$this->l('form_edit')." {$this->subject}</p> ";
 			}
 			else
 			{
@@ -1958,7 +1959,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 
 			if(!$this->unset_back_to_list && !empty($insert_result) && !$this->unset_edit)
 			{
-				$success_message .= " <a class='go-to-edit-form' href='".$this->getEditUrl($insert_result)."'>".$this->l('form_edit')." {$this->subject}</a> ";
+				// $success_message .= " <a class='go-to-edit-form' href ng-click='callAbmview(&quot;".$this->getEditUrl($insert_result)."&quot;);'>".$this->l('form_edit')." {$this->subject}</a> ";
 
 				if (!$this->_is_ajax()) {
 					$success_message .= $this->l('form_or');
@@ -1967,7 +1968,8 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 
 			if(!$this->unset_back_to_list && !$this->_is_ajax())
 			{
-				$success_message .= " <a href='".$this->getListUrl()."'>".$this->l('form_go_back_to_list')."</a>";
+				// $success_message .= " <a href ng-click='callAbmview(&quot;".$this->getListUrl()."&quot;);'>".$this->l('form_go_back_to_list')."</a>";
+				// $success_message .= '<a href ng-click="callAbmview("'.$this->getListUrl().'");">'.$this->l('form_go_back_to_list').'</a>';
 			}
 
 			$success_message .= '</p>';
@@ -2183,10 +2185,12 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 			$success_message = '<p>'.$this->l('update_success_message');
 			if(!$this->unset_back_to_list && !$this->_is_ajax())
 			{
-				$success_message .= " <a href='".$this->getListUrl()."'>".$this->l('form_go_back_to_list')."</a>";
+
+				// $success_message .= " <a href ng-click=\"callAbmview('".$this->getListUrl()."');\">".$this->l('form_go_back_to_list')."</a>";
+				// $success_message .= '<a href ng-click="callAbmview(&quot;'.$this->getListUrl().'&quot;);">'.$this->l('form_go_back_to_list').'</a>';
 			}
 			$success_message .= '</p>';
-
+			// var_dump($success_message);
 			echo json_encode(array(
 					'success' => true ,
 					'insert_primary_key' => $update_result,
@@ -2442,7 +2446,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
     		$read_only_value = implode(", ",$all_values);
     	}
 
-        return '<div id="field-'.$field_info->name.'" class="readonly_label">'.$read_only_value.'</div>';
+        return '<div id="field-'.$field_info->name.'" class="readonly_label">'.htmlspecialchars($read_only_value).'</div>';
 	}
 
 	protected function get_set_input($field_info,$value)

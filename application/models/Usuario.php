@@ -15,8 +15,9 @@ class Usuario extends CI_Model {
         $login = $this->db->get()->result();
 
         // $pwd= $login[0]->password ;
-        // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         // var_dump($hashed_password);
+        // echo password_verify($password, $hashed_password);
         // print $email;
         // print_r($pwd);
         // echo($password);
