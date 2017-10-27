@@ -54,10 +54,9 @@ $(function(){
 								if(save_and_close)
 								{
 									if ($('#save-and-go-back-button').closest('.ui-dialog').length === 0) {
-										// window.location = data.success_list_url;
-										alert("carga exitosa");
-										angular.element('#appController').scope().callAbmview(data.success_list_url);
-										angular.element('#appController').scope().$apply();
+										window.location = data.success_list_url;
+										// alert("carga exitosa");
+										// angular.element(document.querySelectorAll('#appController')).scope().callAbmview(data.success_list_url);
 									} else {
 										$(".ui-dialog-content").dialog("close");
 										success_message(data.success_message);
@@ -108,14 +107,8 @@ $(function(){
 		$('#cancel-button').click(function(){
 			if( $(this).hasClass('back-to-list') || confirm( message_alert_edit_form ) )
 			{
-				// console.log(list_url);
 
-				// console.log(angular);
-				// console.log(angular.element('#appController'));
-
-				angular.element('#appController').scope().callAbmview(list_url);
-				angular.element('#appController').scope().$apply();
-				// window.location = list_url;
+				window.location = list_url;
 			}
 
 			return false;

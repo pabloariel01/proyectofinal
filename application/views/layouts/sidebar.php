@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div id="wrapper" ng-app="tfa">
 
     <!-- Navigation -->
     <nav ng-controller="navController" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -131,7 +131,7 @@
                                     <a href ng-click="div_show2 = !div_show2">ABM Administrativo<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level" ng-show="div_show2">
                                         <li>
-                                            <a href ng-click="adduser()">Modificar o agregar usuarios</a>
+                                            <a href="#abmusers" data-asd='abmusuario/usuarios'>Modificar o agregar usuarios</a>
                                         </li>
 
                                     </ul>
@@ -154,4 +154,5 @@
             <div id="content">
                 <div class="row-fluid">
                     <!-- block -->
-                    <div ng-include="template.url" class="block">
+                    <!-- <div ng-view></div> -->
+                    <!-- <div ng-include="template.url" class="block"> -->

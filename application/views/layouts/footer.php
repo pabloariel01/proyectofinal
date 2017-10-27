@@ -7,8 +7,11 @@
             <footer>
 
             </footer>
-    
 
+    <!-- jQuery -->
+    <?php if(!$abm='true') : ?>
+      <script src="<?php echo base_url('public/bower_components/jquery/dist/jquery.min.js');?>"></script>
+    <?php endif; ?>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url('public/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
 
@@ -23,6 +26,10 @@
     <script src="<?php echo base_url('public/node_modules/chart.js/dist/Chart.min.js');?>"></script>
     <script src="<?php echo base_url('public/node_modules/angular-chart.js/dist/angular-chart.min.js');?>"></script>
     <script src="<?php echo base_url('public/bower_components/angular-ui-select/dist/select.min.js');?>"></script>
+
+
+
+
 
     <!-- Custom Theme JavaScript -->
     <!-- <script src="<?php echo base_url('public/dist/js/sb-admin-2.js');?>"></script> -->

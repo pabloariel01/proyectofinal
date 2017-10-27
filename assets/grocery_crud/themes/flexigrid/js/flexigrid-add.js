@@ -52,10 +52,11 @@ $(function(){
 									if(save_and_close)
 									{
 										if ($('#save-and-go-back-button').closest('.ui-dialog').length === 0) {
-											alert("carga exitosa");
-											angular.element('#appController').scope().callAbmview(data.success_list_url);
-											angular.element('#appController').scope().$apply();
-											// window.location = data.success_list_url;
+											// alert("carga exitosa");
+											// angular.element(document.querySelectorAll('#appController')).scope().callAbmview(data.success_list_url);
+											// angular.element('#appController').scope().callAbmview(data.success_list_url);
+											// angular.element('#appController').scope().$apply();
+											window.location = data.success_list_url;
 										} else {
 											$(".ui-dialog-content").dialog("close");
 											success_message(data.success_message);
@@ -104,9 +105,10 @@ $(function(){
 			$('#cancel-button').click(function(){
 				if( confirm( message_alert_add_form ) )
 				{
-					// window.location = list_url;
-					angular.element('#appController').scope().callAbmview(list_url);
-					angular.element('#appController').scope().$apply();
+					window.location = list_url;
+					// angular.element(document.querySelectorAll('#appController')).scope().callAbmview(list_url);
+					// angular.element('#appController').scope().callAbmview(list_url);
+					// angular.element('#appController').scope().$apply();
 				}
 
 				return false;

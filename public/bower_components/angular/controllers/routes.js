@@ -5,19 +5,23 @@ var m = angular.module('tfa', ['ngRoute','ui.grid','angular.morris-chart','chart
 		$routeProvider
 			//Home
 			.when('/',{
-				templateUrl: 'vistas/inicio',
+				// templateUrl: 'vistas/inicio',
 				controller : "menuController"
 			})
 			.when('vistas/total',{
 				templateUrl: 'vistas/resumenCapturas',
 				controller : "menuController"
 			})
+			.when("/abmusers",{
+				templateUrl:'abmusuario/usuarios'
+			})
+			.when("/abmusers1",{
+				// templateUrl: 'vistas/inicio',
+				templateUrl:'abmusuario/usuarios/edit/8'
+			})
 
-
-
-
-			.otherwise({
-		        redirectTo: '/'
-		    });
+			// .otherwise({
+		  //       redirectTo: '/'
+		  //   });
 
 	});
