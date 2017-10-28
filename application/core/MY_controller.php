@@ -28,6 +28,13 @@ class Admin_Controller extends MY_Controller {
     function __construct() {
         parent::__construct();
         //Initialization code that affects Admin controllers I.E. redirect and die if not logged in or not an admin
+        if( ($this->session->userdata('isLoggedIn')&&($this->session->userdata('rol')=="1")) ) {
+
+        } else {
+            redirect('/');
+
+        }
+
     }
 
 }
@@ -41,7 +48,7 @@ class Member_Controller extends MY_Controller {
 
           } else {
               redirect('/');
-              
+
           }
     }
 

@@ -46,7 +46,7 @@ class Acta extends CI_Model {
             return $query->result_array();
         }
 
-        public function getIndicesloc($value)
+        public function getIndicesloc($acta)
         {
             $this->db->from('acta');
             $this->db->distinct();
@@ -55,12 +55,33 @@ class Acta extends CI_Model {
             $this->db->join('localidad','`campaña-localidad`.`localidad_id` = `localidad`.`idlocalidad`');
             $this->db->select('localidad.idlocalidad');
             //agregar un where para id de acta
-            $where="acta.id = ".$value;
+            $where="acta.id = ".$acta;
             $this->db->where($where);
             $query=$this->db->get_where();
 
             return $query->result_array();
         }
+
+        public function getIndicesporloc($acta,$locs=FALSE)
+        {
+            $this->db->from('acta');
+            $this->db->distinct();
+            $this->db->join('campaña','acta.id=campaña.acta_id');
+            $this->db->join('`campaña-localidad`','campaña.`idcampaña` = `campaña-localidad`.`idcampaña` AND `campaña`.`acta_id` = `campaña-localidad`.`id_acta`');
+            $this->db->join('localidad','`campaña-localidad`.`localidad_id` = `localidad`.`idlocalidad`');
+            $this->db->select('localidad.idlocalidad');
+            //agregar un where para id de acta
+            $where="acta.id = ".$acta;
+            $this->db->where($where);
+            if ($locs) {
+                $where="`campaña-localidad`.idcampaña in " .$locs;
+                $this->db->where($where);
+            }
+            $query=$this->db->get_where();
+
+            return $query->result_array();
+        }
+
 
         public function getInciales($value='')
         {

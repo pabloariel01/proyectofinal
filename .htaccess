@@ -1,7 +1,7 @@
 AddDefaultCharset utf-8
     ErrorDocument 404 /index.php
 
-    DirectoryIndex index.php   
+    DirectoryIndex index.php
 
 
 <IfModule mod_rewrite.c>
@@ -12,12 +12,11 @@ AddDefaultCharset utf-8
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php/$1 [L,QSA]
- 
+
 </IfModule>
- 
 <IfModule !mod_rewrite.c>
- 
+
     # Without mod_rewrite, route 404's to the front controller
-   
- 
+
+
 </IfModule>

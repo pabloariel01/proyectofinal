@@ -33,7 +33,12 @@ class Main extends Member_Controller {
 
 	public function especies(){
 		$r = $this->request();
-		echo (json_encode($this->tablaTotales->getFullTable1($r["acta"],$r["campania"]),JSON_NUMERIC_CHECK));
+		if (isset($r["campania"])){
+				echo (json_encode($this->tablaTotales->getFullTable1($r["acta"],$r["campania"]),JSON_NUMERIC_CHECK));
+		}else {
+		echo (json_encode($this->tablaTotales->getFullTable1($r["acta"]),JSON_NUMERIC_CHECK));
+		}
+
 	}
 
 	public function getCamps(){
@@ -49,7 +54,7 @@ class Main extends Member_Controller {
 	//localidades a las que se fue en la campana
 	public function getLocalidadesxcamp(){
 		// print($this->acta->getid());
-		echo (json_encode($this->acta->getLocalidadesxcamp(1)));
+		echo (json_encode($this->acta->getLocalidadesxcamp(2)));
 	}
 
 
@@ -62,8 +67,13 @@ class Main extends Member_Controller {
 
 	public function getPorcentajes(){
 			$r = $this->request();
-			$localidades= $this->acta->getIndicesloc($r["acta"]);
-			$tabla = $this->tablaTotales->getFullTable1($r["acta"]);
+			if (isset($r["campania"])){
+					$localidades= $this->acta->getIndicesporloc($r["acta"],$r["campania"]);
+					$tabla = $this->tablaTotales->getFullTable1($r["acta"],$r["campania"]);
+			}else {
+				$localidades= $this->acta->getIndicesporloc($r["acta"]);
+				$tabla = $this->tablaTotales->getFullTable1($r["acta"]);
+			}
 			$loc=[];
 
 

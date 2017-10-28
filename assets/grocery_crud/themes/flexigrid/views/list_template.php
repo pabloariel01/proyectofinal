@@ -48,10 +48,11 @@ if($success_message !== null){?>
 	<div class="mDiv">
 		<div class="ftitle">
 			&nbsp;
+			<?php echo addslashes($subject); ?>
 		</div>
-		<div title="<?php echo $this->l('minimize_maximize');?>" class="ptogtitle">
+		<!-- <div title="<?php echo $this->l('minimize_maximize');?>" class="ptogtitle">
 			<span></span>
-		</div>
+		</div> -->
 	</div>
 	<div id='main-table-box' class="main-table-box">
 

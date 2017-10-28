@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Abmusuario extends CI_Controller {
+class Abmusuario extends Admin_Controller {
 
 function __construct(){
         parent::__construct();
@@ -15,14 +15,16 @@ $this->load->library('grocery_CRUD');
 
 
 function _example_output($output = null){
-  $data['data']['titulo'] = 'pfc';
+  $data['titulo'] = 'pfc';
 
   $this->load->view('layouts/header',$data);//$data tiene que ser un array, con lo que se le pase a las vistas!
 	$this->load->view('layouts/sidebar');
 
-  $data1['data']['abm'] = 'true';
   $this->load->view('crud_acta.php',$output);
-  $this->load->view('layouts/footer',$data1);
+  $data['abm'] = 'true';
+  $this->load->view('layouts/footer');
+  // $this->load->view('layouts/footerabm');
+
 }
 
 public function index()

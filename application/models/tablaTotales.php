@@ -161,7 +161,7 @@ class TablaTotales extends CI_Model {
                     if ($valmes) {
                       $where="`campaña-localidad`.id_acta=" . $valueacta;
                       $this->db->where($where);
-                      $where="`campaña-localidad`.idcampaña=" .$valmes;
+                      $where="`campaña-localidad`.idcampaña in " .$valmes;
 
                     } else {
                       $where="`campaña-localidad`.id_acta=" . $valueacta;

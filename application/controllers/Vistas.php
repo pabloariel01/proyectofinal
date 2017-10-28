@@ -19,15 +19,11 @@ class Vistas extends Member_Controller {
 	public function index(){
 		$data['data']['titulo'] = 'pfc';
 		$data['contenido'] = 'menu/index';
-		
+
 		$this->load->view('layouts/plantilla',$data);
 	}
 //carga navbar y sidebar
-	public function inicio(){
-		$data['data']['titulo'] = 'pfc';
-		$this->load->view('layouts/sidebar');
-		//agregar algun logo o algo
-	}
+
 
 
 	public function resumenCapturas(){

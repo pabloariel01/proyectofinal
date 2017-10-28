@@ -1,36 +1,20 @@
-m.controller('menuController', function($scope,$http) {
+m.controller('capturasController', function($scope,$http,$controller) {
 //$scope.var='hola';
 
 // alert('asd');
-
+$controller('BaseController', { $scope: $scope });
+console.log($scope.test1);
 $scope.titulo='Resumen de Capturas';
 $scope.vector_especies = [];
-$scope.acta=24;
+$scope.acta=25;
 $scope.form={};
 $scope.form.b=[];
 
-$scope.templates =
-  [{ name: 'resumenCapturas', url: 'vistas/resumenCapturas'},
-   { name: 'template2.html', url: 'vistas/totalypesoporloc'},
-   { name: 'sumcpueloc', url: 'vistas/sumcpueloc'},
-   {name:'abmusers',url:'abmusuario/usuarios'}
-  ];
 
-
-$scope.traertablaespecies=function() {
-  // $http.get('vistas/resumenCapturas').then(function successCallback(data) {
-  //   // console.log(data.data);
-  //   $scope.vistas=data.data;
-  // });
-  toggle=true;
-  $scope.tabla_especies();
-  $scope.template = $scope.templates[0];
-
-}
 //trae un array con las especies y las cantidades
 $scope.tabla_especies = function(){
     if (toggle){
-        $http.post('main/especies',{'acta':1,'campania':""}).success(function(data){
+        $http.post('/prueba/main/especies',{'acta':1}).success(function(data){
         $scope.vector_especies=data;
         });
     toggle=false;
@@ -40,34 +24,21 @@ $scope.tabla_especies = function(){
 //cambia la tabla por una de porcentajes
 $scope.porcentajes=function(){
     if (!toggle){
-        $http.post('main/getPorcentajes',{'acta':1}).success(function(data){
+        $http.post('/prueba/main/getPorcentajes',{'acta':1,'campania':"(1,3,2,4,5,6)"}).success(function(data){
             $scope.vector_especies=data;
+            console.log(data);
         });
     toggle=true;
     }
 }
 
-// DEVUELVE TODAS LAS ACTAS
-$scope.actas=[];
-$scope.actas_busqueda = function(){
-    $http.post('main/traeractas').success(function(data){
-        $scope.actas = data;
-        // console.log(data);
-    });
-}
-$scope.camps=[];
-$scope.getCamps= function() {
-  $http.post('main/getCamps',{'acta':1}).success(function(data){
-      $scope.camps=data;
-      // console.log(data);
-  });
-}
+
 
 
 // TOTAL GENERAL
 $scope.total=0
 $scope.getTotales = function(){
-    $http.post('main/getTotales').success(function(data){
+    $http.post('/prueba/main/getTotales').success(function(data){
         $scope.total = data;
         // console.log(data[0]);
          // console.log($scope.total);
@@ -75,24 +46,18 @@ $scope.getTotales = function(){
 }
 
 
-$scope.localidades=[];
-$scope.getlocalidades = function(){
-    $http.post('main/getLocalidadesxcamp').success(function(data){
-        $scope.localidades = data;
-         // console.log($scope.localidades);
-    });
-}
+
 $scope.totalPorLoc = function(){
-    $http.post('main/totalPorLoc',{'input':"1"}).success(function(data){
+    $http.post('/prueba/main/totalPorLoc',{'input':"1"}).success(function(data){
         // console.log( data);
-         // console.log($scope.localidades);
+        //  console.log($scope.localidades);
     });
 }
 
 
 
 var toggle=true;
-$scope.totalPorLoc();
+// $scope.totalPorLoc();
 $scope.getlocalidades();
 $scope.getTotales();
 $scope.actas_busqueda();
@@ -102,26 +67,10 @@ $scope.getCamps();
 // console.log($scope.vector_especies);
 
 
-// ///////////////////
-//totalypesoporloc
-/////////////////////
-$scope.totalypesoporloc=function(){
 
-        // $http.post('main/totalypesoporloc/1/1').success(function(data){
-        //     $scope.vector_especies=data;
-        //     console.log(data);
-        // });
-
-        $http.post('main/totalypesoporloc',{'loc':'3','acta':'1'}).then(function(data) {
-              console.log(data);
-              $scope.template = $scope.templates[1];
-              $scope.vector_especies1=data.data;
-            }, function(data, headersGetter, status) {console.log(status);
-        });
-}
 
 $scope.sumcpueloc=function(){
-        $http.post('main/sumcpueloc',{'loc':'1','acta':'1'}).then(function(data) {
+        $http.post('/prueba/main/sumcpueloc',{'loc':'1','acta':'1'}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -131,7 +80,7 @@ $scope.sumcpueloc=function(){
 
 //segundo parametro es opt, puede ser cpue o cpueg
 $scope.cuboCpueEspecies=function(){
-        $http.post('main/cuboCpueEspecies',{'loc':'1','opt':'cpue'}).then(function(data) {
+        $http.post('/prueba/main/cuboCpueEspecies',{'loc':'1','opt':'cpue'}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -140,7 +89,7 @@ $scope.cuboCpueEspecies=function(){
 }
 
 $scope.rangocpuelst=function(){
-        $http.post('main/rangocpuelst',{'loc':'1'}).then(function(data) {
+        $http.post('/prueba/main/rangocpuelst',{'loc':'1'}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -149,7 +98,7 @@ $scope.rangocpuelst=function(){
 }
 
 $scope.cuentaSexoEsp=function(){
-        $http.post('main/cuentaSexoEsp',{'loc':'1','acta':'1'}).then(function(data) {
+        $http.post('/prueba/main/cuentaSexoEsp',{'loc':'1','acta':'1'}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -158,7 +107,7 @@ $scope.cuentaSexoEsp=function(){
 }
 
 $scope.cuentaGonada=function(){
-        $http.post('main/cuentaGonada',{'loc':'1'}).then(function(data) {
+        $http.post('/prueba/main/cuentaGonada',{'loc':'1'}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -167,7 +116,7 @@ $scope.cuentaGonada=function(){
 }
 //sexo 1=m 2=f
 $scope.cuentaGonadaSexo=function(){
-        $http.post('main/cuentaGonadaSexo',{'loc':'1','sexo':1}).then(function(data) {
+        $http.post('/prueba/main/cuentaGonadaSexo',{'loc':'1','sexo':1}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -176,7 +125,7 @@ $scope.cuentaGonadaSexo=function(){
 }
 
 $scope.cuentaEspGonada=function(){
-        $http.post('main/cuentaEspGonada',{'loc':'1','sexo':1}).then(function(data) {
+        $http.post('/prueba/main/cuentaEspGonada',{'loc':'1','sexo':1}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -185,7 +134,7 @@ $scope.cuentaEspGonada=function(){
 }
 
 $scope.rgsXCien=function(){
-        $http.post('main/rgsXCien',{'loc':'3'}).then(function(data) {
+        $http.post('/prueba/main/rgsXCien',{'loc':'3'}).then(function(data) {
               console.log(data);
               $scope.template = $scope.templates[1];
               $scope.vector_especies1=data.data;
@@ -239,4 +188,44 @@ $scope.adduser=function(){
 //                               ymax='25'>
 
 
+});
+
+// ///////////////////
+//totalypesoporloc
+/////////////////////
+
+m.controller('totalypesoporlocController', function($scope,$http,$controller) {
+//$scope.var='hola';
+
+// alert('asd');
+
+
+  $controller('BaseController', { $scope: $scope });
+  $scope.titulo='Totales y Pesos';
+
+
+
+  $scope.getlocalidades();
+  $scope.actas_busqueda();
+  $scope.getCamps();
+  console.log($scope.camps);
+  $scope.form ={'a':""};
+  $scope.form.a="";
+  $scope.form.b=3;
+  $http.post('/prueba/main/totalypesoporloc',{'loc':'3','acta':'1'}).success(function(data){
+      $scope.vector_especies=data;
+  });
+  $scope.filtrarpor=function(items) {
+    var camps="(";
+    // items="("+items.toString()+")";
+
+    if (angular.isArray(items)){
+      angular.forEach(items,function(v,k) {
+          camps +=(v.id.toString()+",");
+      })
+    }
+    camps=camps.substring(0, camps.length-1)+")";
+
+    console.log(camps);
+  }
 });

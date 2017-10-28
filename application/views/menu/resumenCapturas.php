@@ -68,15 +68,14 @@
               <!-- </div> -->
 
           </div>
-      </div>
-      <div class="row-fluid">
-          <h5>total = </h5>{{total}}
-          <p>{{localidades}}</p>
-          <p>{{actas}}</p>
-      </div>
+          <div class="row-fluid">
+              <h5>total = </h5>{{total}}
+              <p>{{localidades}}</p>
+              <p>{{actas}}</p>
+          </div>
       <div >
-      <button  ng-click="porcentajes()" type="button" class="btn btn-primary">Porcentajes</button>
-      <button  ng-click="tabla_especies()" type="button" class="btn btn-primary">totales</button>
+        <button  ng-click="porcentajes()" type="button" class="btn btn-primary">Porcentajes</button>
+        <button  ng-click="tabla_especies()" type="button" class="btn btn-primary">totales</button>
                       <!-- <button ng-click="toggle()" ng-class="{on:b.state}" ng-repeat="b in btns">{{b.label}}</button> -->
                       <!-- <button class="md-raised md-primary md-button md-ink-ripple" type="button" aria-label="boton1"></button> -->
       </div>

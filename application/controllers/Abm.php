@@ -14,8 +14,15 @@ $this->load->library('grocery_CRUD');
 
 
 function _example_output($output = null){
+  $data['titulo'] = 'pfc';
+
+  $this->load->view('layouts/header',$data);//$data tiene que ser un array, con lo que se le pase a las vistas!
+  $this->load->view('layouts/sidebar');
 
   $this->load->view('crud_acta.php',$output);
+  $data['abm'] = 'true';
+  $this->load->view('layouts/footer');
+  // $this->load->view('crud_acta.php',$output);
 }
 
 

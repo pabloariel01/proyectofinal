@@ -25,7 +25,7 @@
                     <li><a href><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login/logout_user"><i class="fa fa-sign-out fa-fw"></i> cerrar sesion</a>
+                    <li><a href="/prueba/login/logout_user"><i class="fa fa-sign-out fa-fw"></i> cerrar sesion</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -51,11 +51,18 @@
                             <!-- /input-group -->
                         <!-- </li> -->
                         <li>
-                            <a href ng-click="traertablaespecies()"><i class="fa fa-table fa-fw"></i> Resumen de Capturas</a>
+                            <?php if($this->router->class=="vistas"): ?>
+                              <a href="#/capturas"><i class="fa fa-table fa-fw"></i> Resumen de Capturas</a>
+                            <?php else : ?>
+                              <a href="/prueba/vistas#/capturas"><i class="fa fa-table fa-fw"></i> Resumen de Capturas</a>
+                            <?php endif; ?>
                         </li>
-
                         <li>
-                            <a href ng-click="totalypesoporloc()"><i class="fa fa-table fa-fw"></i> Total y peso por Localidad</a>
+                          <?php if($this->router->class=="vistas"): ?>
+                            <a href="#/totales"><i class="fa fa-table fa-fw"></i> Total y peso por Localidad</a>
+                          <?php else : ?>
+                            <a href="/prueba/vistas#/totales"><i class="fa fa-table fa-fw"></i> Total y peso por Localidad</a>
+                          <?php endif; ?>
                         </li>
                         <!-- <li>
                             <a href ng-click="sumcpueloc()"><i class="fa fa-table fa-fw"></i>Total y peso por Localidad</a>
@@ -110,33 +117,51 @@
                                     <a href ng-click="div_show1 = !div_show1">ABM <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level" ng-show="div_show1">
                                         <li>
-                                            <a href>Pescas</a>
+                                            <a href="/prueba/abm/actas">Actas</a>
                                         </li>
                                         <li>
-                                            <a href>Especies</a>
+                                            <a href="/prueba/abm/campania">Campaña</a>
                                         </li>
                                         <li>
-                                            <a href>Campaña</a>
+                                            <a href="/prueba/abm/camploc">Info de Campaña</a>
                                         </li>
                                         <li>
-                                            <a href>Pescados</a>
+                                            <a href="/prueba/abm/localidad">Localidades</a>
                                         </li>
                                         <li>
-                                            <a href>Otolitos</a>
+                                            <a href="/prueba/abm/red">Redes</a>
+                                        </li>
+                                        <li>
+                                            <a href="/prueba/abm/fondo">Fondos</a>
+                                        </li>
+                                        <li>
+                                            <a href="/prueba/abm/pesca">Pescas</a>
+                                        </li>
+                                        <li>
+                                            <a href="/prueba/abm/especie">Especies</a>
+                                        </li>
+                                        <li>
+                                            <a href="/prueba/abm/pescado">Pescados</a>
+                                        </li>
+                                        <li>
+                                            <a href="/prueba/abm/otolito">Otolitos</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
+
+                                <?php if($this->session->userdata('rol')=="1"): ?>
                                 <li>
                                     <a href ng-click="div_show2 = !div_show2">ABM Administrativo<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level" ng-show="div_show2">
                                         <li>
-                                            <a href="#abmusers" data-asd='abmusuario/usuarios'>Modificar o agregar usuarios</a>
+                                            <a href="/prueba/abmusuario/usuarios" data-asd='abmusuario/usuarios'>Modificar o agregar usuarios</a>
                                         </li>
 
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
+                              <?php endif; ?>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
