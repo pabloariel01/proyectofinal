@@ -1,5 +1,5 @@
 
-<div id="appController" class="container-fluid" ng-view >
+<div id="appController" class="container-fluid contenido" ng-view >
 
 
 </div>

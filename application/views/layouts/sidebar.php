@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/prueba/vistas/">INICNE</a>
+            <a class="navbar-brand" href="/prueba/vistas#/">INICNE</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -191,7 +191,7 @@
         <div class="col-md-10" id="page-wrapper">
             <div id="content">
                 <div class="row-fluid">
-                  <div class="loader-content" id="loader-content" style="display:block">
+                  <div class="loader-content" id="loader-content" style="display:none">
                     <div id="loader"></div>
                   </div>
                     <!-- block -->

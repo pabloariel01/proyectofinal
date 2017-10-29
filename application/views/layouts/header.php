@@ -23,6 +23,7 @@
     <!-- Custom CSS -->
     <link href="<?php echo base_url('public/dist/css/sb-admin-2.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('public/dist/css/main.css');?>" rel="stylesheet">
+    <link href="<?php echo base_url('public/css/main.css');?>" rel="stylesheet">
     <!-- Morris Charts CSS -->
     <link href="<?php echo base_url('public/bower_components/morrisjs/morris.css');?>" rel="stylesheet">
 
