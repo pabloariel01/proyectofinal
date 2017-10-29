@@ -33,11 +33,9 @@ class Main extends Member_Controller {
 
 	public function especies(){
 		$r = $this->request();
-		if (isset($r["campania"])){
-				echo (json_encode($this->tablaTotales->getFullTable1($r["acta"],$r["campania"]),JSON_NUMERIC_CHECK));
-		}else {
+
 		echo (json_encode($this->tablaTotales->getFullTable1($r["acta"]),JSON_NUMERIC_CHECK));
-		}
+
 
 	}
 
@@ -156,6 +154,12 @@ public function rgsXCien()	{
 	$r = $this->request();
 	echo (json_encode($this->functions->rgsXCien($r["loc"]),JSON_NUMERIC_CHECK));
 }
+public function calcularLargoProm(){
+	var_dump($this->functions->calcularLargoProm());
+}
 
+public function calcularduracion(){
+	var_dump($this->functions->calcularduracion());
+}
 
 }

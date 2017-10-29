@@ -152,7 +152,22 @@ class Functions extends CI_Model {
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
-                return $result->result_array();
+                return $result;
+            }
+
+
+            function calcularduracion(){
+                try {
+                    // $this->db->reconnect();
+                    $sql = "CALL `calcularduracion`()";
+                    $result = $this->db->query($sql); // $data segundo argumento cpue o cpueg
+                    // $this->db->close();
+
+
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+                return $result;
             }
 
 }

@@ -41,6 +41,30 @@ class Vistas extends Member_Controller {
 	public function sumcpueloc(){
 		$data['data']['titulo'] = 'pfc';
 		// $this->load->view('layouts/sidebar');
-		$this->load->view('menu/totalypesoporloc');
+		$this->load->view('menu/sumcpueloc');
+	}
+
+	public function cuboCpueEspecies(){
+		$data['data']['titulo'] = 'pfc';
+		// $this->load->view('layouts/sidebar');
+		$this->load->view('menu/cuboCpueEspecies');
+	}
+
+	public function rangocpuelst(){
+		$data['data']['titulo'] = 'pfc';
+		// $this->load->view('layouts/sidebar');
+		$this->load->view('menu/rangocpuelst');
+	}
+
+	public function cuentaGonadaSexo(){
+		$data['data']['titulo'] = 'pfc';
+		// $this->load->view('layouts/sidebar');
+		$this->load->view('menu/cuentaGonadaSexo');
+	}
+
+	public function funciones(){
+		$data['data']['titulo'] = 'pfc';
+		// $this->load->view('layouts/sidebar');
+		$this->load->view('menu/funciones');
 	}
 }
