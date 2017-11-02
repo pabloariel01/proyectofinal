@@ -33,5 +33,29 @@
     <!-- <div ng-controller="menuController"> -->
         <div ui-grid="{ data: vector_especies }" class="myGrid"></div>
     <!-- </div> -->
-    <button type="button" class="btn btn-success" ng-click="export()">Exportar</button>
+    <!-- <button type="button" class="btn btn-success" ng-click="export()">Exportar</button> -->
+
+
+
+   <div
+      bar-chart
+      bar-data='vector_especies'
+      bar-x='campaña'
+      stacked= 'true'
+      bar-y='["peso AC", "peso redes"]'
+      bar-labels='["peso AC", "peso redes"]'
+      bar-colors='["#31C0BE", "#c7254e"]'>
+
+    </div>
+
+    <div
+       bar-chart
+       bar-data='vector_especies'
+       bar-x='campaña'
+       stacked= 'true'
+       bar-y='["AC","total redes"]'
+       bar-labels='[" total AC","total en redes"]'
+       bar-colors='["#c225ff","#ff254e"]'>
+
+    </div>
 </div>

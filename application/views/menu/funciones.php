@@ -7,11 +7,11 @@
     </div>
     <div class="texto">
         <b>Recalcular largos y pesos promedio</b>
-        <button type="button" ng-click="callcalcularLargoProm()" class="btn btn-primary">Primary</button>
+        <button type="button" ng-click="callcalcularLargoProm()" class="btn btn-primary">Recalcular</button>
     </div>
     <div class="texto">
         <b>Recalcular duracion de pescas</b>
-        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-primary">Recalcular</button>
     </div>
 
 </div>

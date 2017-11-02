@@ -202,7 +202,7 @@ class TablaTotales extends CI_Model {
 
             $this->db->from('especie');
 
-            $consulta='especie.descripcion';
+            $consulta='especie.descripcion as esp';
             for ($k=0; $k < (count($localidades)+1); $k++) {
 
                 $tabla="tabla".($k+1);

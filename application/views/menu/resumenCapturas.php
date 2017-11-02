@@ -1,8 +1,8 @@
 
 <style type="text/css">
     .myGrid {
-        width: 500px;
-        height: 250px;
+        width: 100%;
+        height: 50%;
     }
 
 </style>
@@ -12,7 +12,7 @@
         <div class="muted pull-left"><b>{{titulo}}</b></div>
     </div>
     <div class="form-group">
-        <select  ng-options="acta as acta.descripcion for acta in actas track by acta.id" ng-model="selected"></select>
+      ACTA:  <select  ng-options="acta as acta.descripcion for acta in actas track by acta.id" ng-model="selected"></select>
 
 
         <!-- <label for="camps"> Camps</label>
@@ -37,7 +37,8 @@
 
 
               <!-- <div ng-controller="menuController"> -->
-                  <div ui-grid="{ data: vector_especies }" class="myGrid"></div>
+              <div  id="grid1" ui-grid="gridOptions" ui-grid-exporter class="myGrid"></div>
+                  <!-- <div ui-grid="{ data: vector_especies }" class="myGrid"></div> -->
               <!-- </div> -->
 
     <button type="button" class="btn btn-success" ng-click="export()">Exportar</button>

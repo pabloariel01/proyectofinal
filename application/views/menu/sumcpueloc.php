@@ -7,7 +7,7 @@
         <select id="actas" ng-options="acta as acta.descripcion for acta in actas track by acta.id" ng-model="selected"></select>
 
 
-        <label for="camps"> Localidades</label>
+        <p > Localidades</p>
 
 
         <ui-select  ng-model="form.a" on-select="actualizarTabla()" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 300px;" title="elegir localidad">
@@ -27,6 +27,31 @@
     <!-- <div ng-controller="menuController"> -->
         <div ui-grid="{ data: vector_especies }" class="myGrid"></div>
     <!-- </div> -->
-    <button type="button" class="btn btn-success" ng-click="export()">Exportar</button>
+    <!-- <button type="button" class="btn btn-success" ng-click="export()">Exportar</button> -->
 
+
+<b>Captura por unidad de esfuerzo</b>
+
+
+    <div
+       bar-chart
+       bar-data='vector_especies'
+       bar-x='idcampaña'
+       stacked= 'true'
+       bar-y='["suma", "cpue"]'
+       bar-labels='["suma", "cpue"]'
+       bar-colors='["#31C0BE", "#c7254e"]'>
+
+     </div>
+<b>Captura por unidad de esfuerzo por g.</b>
+     <div
+        bar-chart
+        bar-data='vector_especies'
+        bar-x='idcampaña'
+        stacked= 'true'
+        bar-y='["suma","cpue g"]'
+        bar-labels='["suma","cpue g"]'
+        bar-colors='["#c225ff","#ff254e"]'>
+
+     </div>
 </div>

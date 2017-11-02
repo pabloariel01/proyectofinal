@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>INICNE</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('public/bower_components/bootstrap/dist/css/bootstrap.min.css');?>" rel="stylesheet">
@@ -42,7 +42,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Inicne</h3>
+                        <h3 class="panel-title">INICNE</h3>
                     </div>
                     <div class="panel-body">
                       <?php if (isset($error) && $error): ?>
@@ -53,8 +53,8 @@
                       <?php echo validation_errors(); ?>
                       <?php echo form_open('Login/login_user') ?>
 
-                      <input type="text" id="usuario" class="span4 form-control" name="usuario" placeholder="Email">
-                      <input type="password" id="password" class="span4 form-control" name="password" placeholder="Password">
+                      <input type="text" id="usuario" class="span4 form-control" name="usuario" placeholder="Usuario">
+                      <input type="password" id="password" class="span4 form-control" name="password" placeholder="contraseña">
 
                       <!--<label class="checkbox">
                         <input type="checkbox" name="remember" value="1"> Remember Me

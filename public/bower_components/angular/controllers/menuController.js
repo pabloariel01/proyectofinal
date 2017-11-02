@@ -3,7 +3,6 @@ m.controller('capturasController', function($scope,$http,$controller) {
 
 // alert('asd');
 $controller('BaseController', { $scope: $scope });
-
 $scope.titulo='Resumen de Capturas';
 $scope.vector_especies = [];
 $scope.acta=25;
@@ -12,11 +11,42 @@ $scope.form.b=[];
 $scope.selected={"id":"1","descripcion":"25"};
 
 
+
+  $scope.gridOptions = {
+    enableFiltering: true,
+    enableGridMenu: false,
+    exporterMenuCsv:true,
+    exporterLinkLabel: 'get your csv here',
+    exporterCsvFilename: 'myFile.csv',
+    columnDefs: [
+      { field: 'esp',
+        filterHeaderTemplate: '<div class="ui-grid-filter-container" ng-repeat="colFilter in col.filters"><div my-custom-modal></div></div>'
+      },{ field: 'ITU' , enableFiltering: false},{ field: 'ITA' , enableFiltering: false},{ field: 'PGO', enableFiltering: false },
+      { field: 'ABR' , enableFiltering: false},
+      { field: 'total', enableFiltering: false }
+
+
+    ],
+    // data:$scope.vector_especies,
+    exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
+    onRegisterApi: function(gridApi){
+      $scope.gridApi = gridApi;
+    }
+  };
+
+  $scope.export = function(){
+      var myElement = angular.element(document.querySelectorAll(".custom-csv-link-location"));
+      $scope.gridApi.exporter.csvExport( "all", "all", myElement );
+
+  };
+
 //trae un array con las especies y las cantidades
 $scope.tabla_especies = function(){
     if (toggle){
         $http.post('/prueba/main/especies',{'acta':$scope.selected.id}).success(function(data){
         $scope.vector_especies=data;
+        $scope.gridOptions.data = data;
+        console.log(data);
         });
         toggle=false;
     }
@@ -27,7 +57,8 @@ $scope.porcentajes=function(){
     if (!toggle){
         $http.post('/prueba/main/getPorcentajes',{'acta':$scope.selected.id}).success(function(data){
             $scope.vector_especies=data;
-            console.log(data);
+            $scope.gridOptions.data = data;
+
         });
     toggle=true;
     }
@@ -40,7 +71,7 @@ $scope.total=0
 $scope.getTotales = function(){
     $http.post('/prueba/main/getTotales').success(function(data){
         $scope.total = data;
-        
+
          // console.log($scope.total);
     });
 }
@@ -69,7 +100,7 @@ $scope.getCamps();
 
 
 
-// alert("asd");
+
 // Morris.Line({
 //   element: 'line-example',
 //   data: 'vector_especies',
@@ -152,6 +183,7 @@ m.controller('sumcpuelocController', function($scope,$http,$controller) {
   $scope.actualizarTabla=function () {
     $http.post('/prueba/main/sumcpueloc',{'loc':$scope.form.a.idlocalidad,'acta':$scope.selected.id}).then(function(data) {
           $scope.vector_especies=data.data;
+
         }, function(data, headersGetter, status) {console.log(data);
     });
   };

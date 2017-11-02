@@ -148,7 +148,7 @@ var m = angular.module('tfa', ['ngRoute','ui.grid','ui.bootstrap','angular.morri
 			      $scope.gridOptions.data.push({esp: esp});
 			    });
 
-			    var html = '<div class="modal" ng-style="{display: \'block\'}"><div class="modal-dialog"><div class="modal-content"><div class="modal-header">Filter esp</div><div class="modal-body"><div id="grid1" ui-grid="gridOptions" ui-grid-selection class="modalGrid"></div></div><div class="modal-footer"><button id="buttonClose" class="btn btn-primary" ng-click="close()">Filter</button></div></div></div></div>';
+			    var html = '<div class="modal" ng-style="{display: \'block\'}"><div class="modal-dialog"><div class="modal-content"><div class="modal-header">Filtrar por Especie</div><div class="modal-body"><div id="grid1" ui-grid="gridOptions" ui-grid-selection class="modalGrid"></div></div><div class="modal-footer"><button id="buttonClose" class="btn btn-primary" ng-click="close()">Filtrar</button></div></div></div></div>';
 			    $elm = angular.element(html);
 			    angular.element(document.body).prepend($elm);
 
