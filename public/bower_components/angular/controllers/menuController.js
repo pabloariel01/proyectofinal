@@ -46,7 +46,7 @@ $scope.selected={"id":"1","descripcion":"25"};
 //trae un array con las especies y las cantidades
 $scope.tabla_especies = function(){
     if (toggle){
-        $http.post('/prueba/main/especies',{'acta':$scope.selected.id,'tMuestreos':$scope.token}).success(function(data){
+        $http.post('/pfcpablosilva/main/especies',{'acta':$scope.selected.id,'tMuestreos':$scope.token}).success(function(data){
         $scope.vector_especies=data;
         $scope.gridOptions.data = data;
         // console.log(data);
@@ -58,7 +58,7 @@ $scope.tabla_especies = function(){
 //cambia la tabla por una de porcentajes
 $scope.porcentajes=function(){
     if (!toggle){
-        $http.post('/prueba/main/getPorcentajes',{'acta':$scope.selected.id,'tMuestreos':$scope.token}).success(function(data){
+        $http.post('/pfcpablosilva/main/getPorcentajes',{'acta':$scope.selected.id,'tMuestreos':$scope.token}).success(function(data){
             $scope.vector_especies=data;
             $scope.gridOptions.data = data;
 
@@ -72,7 +72,7 @@ $scope.porcentajes=function(){
 // TOTAL GENERAL
 $scope.total=0
 $scope.getTotales = function(){
-    $http.post('/prueba/main/getTotales',{'tMuestreos':$scope.token}).success(function(data){
+    $http.post('/pfcpablosilva/main/getTotales',{'tMuestreos':$scope.token}).success(function(data){
         $scope.total = data;
 
          // console.log($scope.total);
@@ -82,7 +82,7 @@ $scope.getTotales = function(){
 
 
 $scope.totalPorLoc = function(){
-    $http.post('/prueba/main/totalPorLoc',{'input':"1",'tMuestreos':$scope.token}).success(function(data){
+    $http.post('/pfcpablosilva/main/totalPorLoc',{'input':"1",'tMuestreos':$scope.token}).success(function(data){
         // console.log( data);
         //  console.log($scope.localidades);
     });
@@ -146,7 +146,7 @@ m.controller('totalypesoporlocController', function($scope,$http,$controller) {
   $scope.selected={"id":"1","descripcion":"25"};
 
   $scope.actualizarTabla=function () {
-      $http.post('/prueba/main/totalypesoporloc',{'loc':$scope.form.a.idlocalidad,'acta':$scope.selected.id}).success(function(data){
+      $http.post('/pfcpablosilva/main/totalypesoporloc',{'loc':$scope.form.a.idlocalidad,'acta':$scope.selected.id}).success(function(data){
           $scope.vector_especies=data;
       });
   }
@@ -186,7 +186,7 @@ m.controller('sumcpuelocController', function($scope,$http,$controller,$cookies)
 
 
   $scope.actualizarTabla=function () {
-    $http.post('/prueba/main/sumcpueloc',{'loc':$scope.form.a.idlocalidad,'acta':$scope.selected.id}).then(function(data) {
+    $http.post('/pfcpablosilva/main/sumcpueloc',{'loc':$scope.form.a.idlocalidad,'acta':$scope.selected.id}).then(function(data) {
           $scope.vector_especies=data.data;
 
         }, function(data, headersGetter, status) {console.log(data);
@@ -246,7 +246,7 @@ m.controller('cuboCpueEspeciesController', function($scope,$http,$controller) {
 
   $scope.actualizarTabla=function () {
     //segundo parametro es opt, puede ser cpue o cpueg
-            $http.post('/prueba/main/cuboCpueEspecies',{'loc':$scope.form.a.idlocalidad,'opt':$scope.form.b}).then(function(data) {
+            $http.post('/pfcpablosilva/main/cuboCpueEspecies',{'loc':$scope.form.a.idlocalidad,'opt':$scope.form.b}).then(function(data) {
                   // console.log(data);
                   $scope.vector_especies=data.data;
                   $scope.gridOptions.data = data.data;
@@ -289,7 +289,7 @@ m.controller('rangocpuelstController', function($scope,$http,$controller) {
 
 
   $scope.actualizarTabla=function () {
-            $http.post('/prueba/main/rangocpuelst',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
+            $http.post('/pfcpablosilva/main/rangocpuelst',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
                   $scope.gridOptions.data = data.data;
                 }, function(data, headersGetter, status) {console.log(data.data);
             });
@@ -332,12 +332,12 @@ m.controller('cuentaSexoEspController', function($scope,$http,$controller) {
   $scope.actualizarTabla=function () {
 
 
-            $http.post('/prueba/main/cuentaSexoEsp',{'loc':$scope.form.a.idlocalidad,'acta':$scope.selected.id}).then(function(data) {
+            $http.post('/pfcpablosilva/main/cuentaSexoEsp',{'loc':$scope.form.a.idlocalidad,'acta':$scope.selected.id}).then(function(data) {
                   $scope.gridOptions.data = data.data;
                 }, function(data, headersGetter, status) {console.log(data.data);
             });
 
-            $http.post('/prueba/main/rangocpuelst',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
+            $http.post('/pfcpablosilva/main/rangocpuelst',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
 
                 }, function(data, headersGetter, status) {console.log(data.data);
             });
@@ -392,7 +392,7 @@ m.controller('cuentaGonadaController', function($scope,$http,$controller) {
 
   $scope.actualizarTabla=function () {
 
-            $http.post('/prueba/main/cuentaGonada',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
+            $http.post('/pfcpablosilva/main/cuentaGonada',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
                   $scope.gridOptions.data = data.data;
                 }, function(data, headersGetter, status) {console.log(data.data);
             });
@@ -452,7 +452,7 @@ m.controller('cuentaGonadaSexoController', function($scope,$http,$controller) {
 
     //sexo 1=m 2=f
 
-            $http.post('/prueba/main/cuentaGonadaSexo',{'loc':$scope.form.a.idlocalidad,'sexo':$scope.form.b.id}).then(function(data) {
+            $http.post('/pfcpablosilva/main/cuentaGonadaSexo',{'loc':$scope.form.a.idlocalidad,'sexo':$scope.form.b.id}).then(function(data) {
                   $scope.gridOptions.data = data.data;
                 }, function(data, headersGetter, status) {console.log(data.data);
             });
@@ -512,7 +512,7 @@ m.controller('cuentaEspGonadaController', function($scope,$http,$controller) {
   $scope.actualizarTabla=function () {
 
         //sexo 1=m 2=f
-        $http.post('/prueba/main/cuentaEspGonada',{'loc':$scope.form.a.idlocalidad,'sexo':$scope.form.b.id}).then(function(data) {
+        $http.post('/pfcpablosilva/main/cuentaEspGonada',{'loc':$scope.form.a.idlocalidad,'sexo':$scope.form.b.id}).then(function(data) {
               $scope.gridOptions.data = data.data;
             }, function(data, headersGetter, status) {console.log(data.data);
         });
@@ -570,7 +570,7 @@ m.controller('rgsXCienController', function($scope,$http,$controller) {
 
   $scope.actualizarTabla=function () {
 
-    $http.post('/prueba/main/rgsXCien',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
+    $http.post('/pfcpablosilva/main/rgsXCien',{'loc':$scope.form.a.idlocalidad}).then(function(data) {
         $scope.gridOptions.data = data.data;
         }, function(data, headersGetter, status) {console.log(data.data);
     });
@@ -586,7 +586,7 @@ m.controller('funcionesController', function($scope,$http,$controller) {
 
   $scope.callcalcularLargoProm=function(){
     document.getElementById("loader-content").style.display = "block";
-    $http.get('/prueba/main/calcularLargoProm').then(function(data) {
+    $http.get('/pfcpablosilva/main/calcularLargoProm').then(function(data) {
         // $scope.gridOptions.data = data.data;
         console.log(data);
         alert("finalizo correctamente");
@@ -600,7 +600,7 @@ m.controller('funcionesController', function($scope,$http,$controller) {
 
   $scope.callcalcularLargoProm=function(){
     document.getElementById("loader-content").style.display = "block";
-    $http.get('/prueba/main/calcularLargoProm').then(function(data) {
+    $http.get('/pfcpablosilva/main/calcularLargoProm').then(function(data) {
         // $scope.gridOptions.data = data.data;
         console.log(data);
         document.getElementById("loader-content").style.display = "none";

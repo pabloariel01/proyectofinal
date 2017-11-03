@@ -75,7 +75,7 @@ var m = angular.module('tfa', ['ngRoute','ngCookies','ui.grid','ui.bootstrap','a
 
 
 					$scope.actas_busqueda = function(){
-					    $http.post('/prueba/main/traeractas').success(function(data){
+					    $http.post('/pfcpablosilva/main/traeractas').success(function(data){
 					        $scope.actas = data;
 					        // console.log(data);
 					    });
@@ -83,14 +83,14 @@ var m = angular.module('tfa', ['ngRoute','ngCookies','ui.grid','ui.bootstrap','a
 					// Trae las campanias de un acta
 					$scope.camps=[];
 					$scope.getCamps= function() {
-					  $http.post('/prueba/main/getCamps',{'acta':1}).success(function(data){
+					  $http.post('/pfcpablosilva/main/getCamps',{'acta':1}).success(function(data){
 					      $scope.camps=data;
 					      // console.log(data);
 					  });
 					}
 					$scope.localidades=[];
 					$scope.getlocalidades = function(){
-					    $http.post('/prueba/main/getLocalidadesxcamp').success(function(data){
+					    $http.post('/pfcpablosilva/main/getLocalidadesxcamp').success(function(data){
 					        $scope.localidades = data;
 					        //  console.log($scope.localidades);
 					    });
