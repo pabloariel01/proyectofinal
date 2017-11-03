@@ -10,6 +10,8 @@
 <div class="block">
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><b>{{titulo}}</b></div>
+        
+
     </div>
     <div class="form-group">
       ACTA:  <select  ng-options="acta as acta.descripcion for acta in actas track by acta.id" ng-model="selected"></select>

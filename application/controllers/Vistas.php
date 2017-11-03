@@ -34,6 +34,7 @@ class Vistas extends Member_Controller {
 
 	public function totalypesoporloc(){
 		$data['data']['titulo'] = 'pfc';
+
 		// $this->load->view('layouts/sidebar');
 		$this->load->view('menu/totalypesoporloc');
 	}

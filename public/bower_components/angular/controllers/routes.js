@@ -1,5 +1,5 @@
 //var m = angular.module('tfa', ['ngRoute']);
-var m = angular.module('tfa', ['ngRoute','ui.grid','ui.bootstrap','angular.morris-chart','chart.js','ui.select','ngSanitize','ngAnimate', 'ui.grid.exporter','ui.grid.selection'])
+var m = angular.module('tfa', ['ngRoute','ngCookies','ui.grid','ui.bootstrap','angular.morris-chart','chart.js','ui.select','ngSanitize','ngAnimate', 'ui.grid.exporter','ui.grid.selection'])
 // var myApp = angular.module('tfa');
 	.config(function($routeProvider) {
 		$routeProvider
@@ -67,10 +67,13 @@ var m = angular.module('tfa', ['ngRoute','ui.grid','ui.bootstrap','angular.morri
 	.controller('BaseController',
 	    ['$scope','$http',
 	    function ($scope,$http) {
-
-	        $scope.test1="asdf"
+				// alert();
 					// DEVUELVE TODAS LAS ACTAS
 					$scope.actas=[];
+
+
+
+
 					$scope.actas_busqueda = function(){
 					    $http.post('/prueba/main/traeractas').success(function(data){
 					        $scope.actas = data;
@@ -179,4 +182,20 @@ var m = angular.module('tfa', ['ngRoute','ui.grid','ui.bootstrap','angular.morri
 			    template: '<label>{{colFilter.term}}</label><button ng-click="showAgeModal()">...</button>',
 			    controller: 'myCustomModalCtrl'
 			  };
-			});
+			})
+
+// 	.factory('httpRequestInterceptor', function () {
+//   		return {
+//     request: function (config) {
+//
+//       config.headers['tMuestreos'] = $scope.name;
+//       config.headers['Accept'] = 'application/json;odata=verbose';
+//
+//       return config;
+//     }
+//   };
+// })
+//
+// .config(function ($httpProvider) {
+//   $httpProvider.interceptors.push('httpRequestInterceptor');
+// });

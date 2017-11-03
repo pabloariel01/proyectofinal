@@ -1,6 +1,9 @@
-m.controller('capturasController', function($scope,$http,$controller) {
+m.controller('capturasController', function($scope,$http,$controller,$cookies) {
 //$scope.var='hola';
 
+
+// alert(<?php echo $this->security->get_csrf_token_name(); ?>);
+// '<?php echo $this->security->get_csrf_hash(); ?>');
 // alert('asd');
 $controller('BaseController', { $scope: $scope });
 $scope.titulo='Resumen de Capturas';
@@ -43,10 +46,10 @@ $scope.selected={"id":"1","descripcion":"25"};
 //trae un array con las especies y las cantidades
 $scope.tabla_especies = function(){
     if (toggle){
-        $http.post('/prueba/main/especies',{'acta':$scope.selected.id}).success(function(data){
+        $http.post('/prueba/main/especies',{'acta':$scope.selected.id,'tMuestreos':$scope.token}).success(function(data){
         $scope.vector_especies=data;
         $scope.gridOptions.data = data;
-        console.log(data);
+        // console.log(data);
         });
         toggle=false;
     }
@@ -55,7 +58,7 @@ $scope.tabla_especies = function(){
 //cambia la tabla por una de porcentajes
 $scope.porcentajes=function(){
     if (!toggle){
-        $http.post('/prueba/main/getPorcentajes',{'acta':$scope.selected.id}).success(function(data){
+        $http.post('/prueba/main/getPorcentajes',{'acta':$scope.selected.id,'tMuestreos':$scope.token}).success(function(data){
             $scope.vector_especies=data;
             $scope.gridOptions.data = data;
 
@@ -69,7 +72,7 @@ $scope.porcentajes=function(){
 // TOTAL GENERAL
 $scope.total=0
 $scope.getTotales = function(){
-    $http.post('/prueba/main/getTotales').success(function(data){
+    $http.post('/prueba/main/getTotales',{'tMuestreos':$scope.token}).success(function(data){
         $scope.total = data;
 
          // console.log($scope.total);
@@ -79,7 +82,7 @@ $scope.getTotales = function(){
 
 
 $scope.totalPorLoc = function(){
-    $http.post('/prueba/main/totalPorLoc',{'input':"1"}).success(function(data){
+    $http.post('/prueba/main/totalPorLoc',{'input':"1",'tMuestreos':$scope.token}).success(function(data){
         // console.log( data);
         //  console.log($scope.localidades);
     });
@@ -165,7 +168,7 @@ m.controller('totalypesoporlocController', function($scope,$http,$controller) {
 });
 
 
-m.controller('sumcpuelocController', function($scope,$http,$controller) {
+m.controller('sumcpuelocController', function($scope,$http,$controller,$cookies) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Captura por Unidad de Esfuerzo';
@@ -177,6 +180,8 @@ m.controller('sumcpuelocController', function($scope,$http,$controller) {
   $scope.form ={'a':""};
   $scope.form.a={"iniciales":"ABR","idlocalidad":"3","nombre":"Puerto Abra"};
   $scope.selected={"id":"1","descripcion":"25"};
+
+  // console.log( $cookies.get('Muestreos'));
 
 
 

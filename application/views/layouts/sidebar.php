@@ -13,7 +13,8 @@
         </div>
         <!-- /.navbar-header -->
 
-        <ul class="nav navbar-top-links navbar-right">
+
+        <ul class="nav navbar-top-links navbar-right"><?php echo ($this->session->userdata("nombre")); ?>
 
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href>
