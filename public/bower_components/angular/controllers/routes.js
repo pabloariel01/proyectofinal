@@ -1,5 +1,5 @@
 //var m = angular.module('tfa', ['ngRoute']);
-var m = angular.module('tfa', ['ngRoute','ngCookies','ui.grid','ui.bootstrap','angular.morris-chart','chart.js','ui.select','ngSanitize','ngAnimate', 'ui.grid.exporter','ui.grid.selection'])
+var m = angular.module('tfa', ['ngRoute','ui.grid','ui.bootstrap','angular.morris-chart','chart.js','ui.select','ngSanitize','ngAnimate', 'ui.grid.exporter','ui.grid.selection'])
 // var myApp = angular.module('tfa');
 	.config(function($routeProvider) {
 		$routeProvider

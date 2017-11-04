@@ -1,4 +1,4 @@
-m.controller('capturasController', function($scope,$http,$controller,$cookies) {
+m.controller('capturasController', function($scope,$http,$controller) {
 //$scope.var='hola';
 
 
@@ -168,7 +168,7 @@ m.controller('totalypesoporlocController', function($scope,$http,$controller) {
 });
 
 
-m.controller('sumcpuelocController', function($scope,$http,$controller,$cookies) {
+m.controller('sumcpuelocController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Captura por Unidad de Esfuerzo';
@@ -181,7 +181,7 @@ m.controller('sumcpuelocController', function($scope,$http,$controller,$cookies)
   $scope.form.a={"iniciales":"ABR","idlocalidad":"3","nombre":"Puerto Abra"};
   $scope.selected={"id":"1","descripcion":"25"};
 
-  // console.log( $cookies.get('Muestreos'));
+
 
 
 
