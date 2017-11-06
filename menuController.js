@@ -49,7 +49,7 @@ $scope.tabla_especies = function(){
         $http.post('/pfcpablosilva/main/especies',{'acta':$scope.selected.id,'tMuestreos':$scope.token}).success(function(data){
         $scope.vector_especies=data;
         $scope.gridOptions.data = data;
-        // console.log(data);
+
         });
         toggle=false;
     }
@@ -72,7 +72,7 @@ $scope.porcentajes=function(){
 // TOTAL GENERAL
 $scope.total=0
 $scope.getTotales = function(){
-    $http.post('/pfcpablosilva/main/getTotales',{'tMuestreos':$scope.token}).success(function(data){
+    $http.post('/pfcpablosilva/main/getTotales').success(function(data){
         $scope.total = data;
 
          // console.log($scope.total);
@@ -82,7 +82,7 @@ $scope.getTotales = function(){
 
 
 $scope.totalPorLoc = function(){
-    $http.post('/pfcpablosilva/main/totalPorLoc',{'input':"1",'tMuestreos':$scope.token}).success(function(data){
+    $http.post('/pfcpablosilva/main/totalPorLoc',{'input':"1"}).success(function(data){
         // console.log( data);
         //  console.log($scope.localidades);
     });
@@ -100,7 +100,7 @@ $scope.getCamps();
 // console.log($scope.vector_especies);
 
 
-
+console.log($scope.gridOptions);
 
 
 

@@ -179,7 +179,7 @@ var m = angular.module('tfa', ['ngRoute','ui.grid','ui.bootstrap','angular.morri
 
 			.directive('myCustomModal', function() {
 			  return {
-			    template: '<label>{{colFilter.term}}</label><button ng-click="showAgeModal()">...</button>',
+			    template: '<label></label><button ng-click="showAgeModal()">...</button>',
 			    controller: 'myCustomModalCtrl'
 			  };
 			})
