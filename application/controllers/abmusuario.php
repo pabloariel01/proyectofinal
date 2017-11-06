@@ -68,7 +68,7 @@ public function usuarios($operation = null){
 
 function encrypt_password_callback($post_array){
   // var_dump($this);
-  $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+  // $hashed_password = password_hash($password, PASSWORD_BCRYPT);
   // var_dump($post_array);
    unset($post_array['passconf']);
   $post_array['password'] = password_hash($post_array['password'], PASSWORD_BCRYPT);

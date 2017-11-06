@@ -11,7 +11,7 @@
     </div>
     <div class="texto">
         <b>Recalcular duracion de pescas</b>
-        <button type="button" class="btn btn-primary">Recalcular</button>
+        <button type="button" ng-click="calcularduracion()" class="btn btn-primary">Recalcular</button>
     </div>
 
 </div>

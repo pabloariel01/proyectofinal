@@ -1968,6 +1968,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 
 			if(!$this->unset_back_to_list && !$this->_is_ajax())
 			{
+				$success_message .= " <a href='".$this->getListUrl()."'>".$this->l('form_go_back_to_list')."</a>";
 				// $success_message .= " <a href ng-click='callAbmview(&quot;".$this->getListUrl()."&quot;);'>".$this->l('form_go_back_to_list')."</a>";
 				// $success_message .= '<a href ng-click="callAbmview("'.$this->getListUrl().'");">'.$this->l('form_go_back_to_list').'</a>';
 			}
@@ -2185,7 +2186,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 			$success_message = '<p>'.$this->l('update_success_message');
 			if(!$this->unset_back_to_list && !$this->_is_ajax())
 			{
-
+				$success_message .= " <a href='".$this->getListUrl()."'>".$this->l('form_go_back_to_list')."</a>";
 				// $success_message .= " <a href ng-click=\"callAbmview('".$this->getListUrl()."');\">".$this->l('form_go_back_to_list')."</a>";
 				// $success_message .= '<a href ng-click="callAbmview(&quot;'.$this->getListUrl().'&quot;);">'.$this->l('form_go_back_to_list').'</a>';
 			}

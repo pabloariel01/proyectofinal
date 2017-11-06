@@ -10,7 +10,7 @@
 <div class="block">
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><b>{{titulo}}</b></div>
-        
+
 
     </div>
     <div class="form-group">
@@ -63,7 +63,7 @@
             line-chart
 
             line-data='vector_especies'
-            line-xkey='descripcion'
+            line-xkey='esp'
             line-ykeys='["ITU", "ITA","ABR","PGO"]'
             line-labels='["itu", "ita","abr","pgo"]'
             line-colors='["#31C0BE", "#c7254e","#c225ff","#ff254e"]'

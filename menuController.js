@@ -598,9 +598,9 @@ m.controller('funcionesController', function($scope,$http,$controller) {
 
   };
 
-  $scope.calcularduracion=function(){
+  $scope.callcalcularLargoProm=function(){
     document.getElementById("loader-content").style.display = "block";
-    $http.get('/pfcpablosilva/main/calcularduracion').then(function(data) {
+    $http.get('/pfcpablosilva/main/calcularLargoProm').then(function(data) {
         // $scope.gridOptions.data = data.data;
         console.log(data);
         document.getElementById("loader-content").style.display = "none";
