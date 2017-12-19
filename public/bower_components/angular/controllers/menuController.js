@@ -7,6 +7,7 @@ m.controller('capturasController', function($scope,$http,$controller) {
 // alert('asd');
 $controller('BaseController', { $scope: $scope });
 $scope.titulo='Resumen de Capturas';
+$scope.ayuda="Tabla resumen de capturas por especie por localidad acumuladas del acta elegida, posee opcion de elegir resultados totales o porcentuales y posibilidad de exportar. Localidades itu:Ituzaingo, ita:Ita ibate, abr:Puerto Abra  pgo:Pago Largo";
 $scope.vector_especies = [];
 $scope.acta=25;
 $scope.form={};
@@ -136,7 +137,7 @@ m.controller('totalypesoporlocController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Totales y Pesos';
-
+  $scope.ayuda="Esta tabla contiene los totales de capturas de cada localidad, discriminado por si fueron capturados mediante el uso de redes, o por artes complementarias(AC) y el peso total de las mismas"
 
   $scope.getlocalidades();
   $scope.actas_busqueda();
@@ -172,7 +173,7 @@ m.controller('sumcpuelocController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Captura por Unidad de Esfuerzo';
-
+  $scope.ayuda="Tabla de capturas por unidad de esfuerzo discriminadas por localidad, incluyen el total de capturas, el indice de capturas por unidad de esfuerzo (CPUE) y el indice de captura por unidad de esfuerzo por gramo(CPUE G)";
 
   $scope.getlocalidades();
   $scope.actas_busqueda();
@@ -200,8 +201,8 @@ m.controller('sumcpuelocController', function($scope,$http,$controller) {
 m.controller('cuboCpueEspeciesController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
-  $scope.titulo='suma Captura por Unidad de Esfuerzo(CPUE) por Localidad';
-
+  $scope.titulo='Suma Captura por Unidad de Esfuerzo(CPUE) por Localidad';
+  $scope.ayuda="Tabla con las capturas por unidad de esfuerzo discriminadas por especie, campaña en que se realizo la captura, promedio y total. Posee como parametro extra la posibilidad de optar por mostrar el indice CPUE o CPUE G";
 
   $scope.getlocalidades();
   $scope.actas_busqueda();
@@ -261,8 +262,8 @@ m.controller('cuboCpueEspeciesController', function($scope,$http,$controller) {
 m.controller('rangocpuelstController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
-  $scope.titulo='suma Captura por Unidad de Esfuerzo(CPUE) por Localidad';
-
+  $scope.titulo='Suma Captura por Unidad de Esfuerzo(CPUE) por largo y Localidad';
+  $scope.ayuda="Tabla con totales de pescas separadas por rangos de longitud y sexo";
 
   $scope.getlocalidades();
   $scope.actas_busqueda();
@@ -305,6 +306,7 @@ m.controller('cuentaSexoEspController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Totales por Sexo';
+  $scope.ayuda="Tabla con totales de capturas discriminadas por especie y sexo, representando M:macho, H:hembra, X: sin clasificar";
 
   $scope.getlocalidades();
   $scope.actas_busqueda();
@@ -351,6 +353,7 @@ m.controller('cuentaGonadaController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Total por Estado de Gonada';
+  $scope.ayuda="Totales de capturas discriminados por estado gonodosomatico y campaña en la que fueron capturados";
 
 
   $scope.getlocalidades();
@@ -407,6 +410,7 @@ m.controller('cuentaGonadaSexoController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Total por estado de gonada y sexo';
+  $scope.ayuda="Totales de capturas por discriminado por estado gonodosomatico y campaña de captura, con la posibilidad de recuperar por sexo";
 
 
   $scope.getlocalidades();
@@ -468,7 +472,7 @@ m.controller('cuentaEspGonadaController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Total de Especies por Estado de Gonada y Sexo';
-
+  $scope.ayuda="Total de capturas discriminadas por campaña, especie y estado gonodosomatico, discriminados por sexo";
 
   $scope.getlocalidades();
   $scope.actas_busqueda();
@@ -527,6 +531,7 @@ m.controller('rgsXCienController', function($scope,$http,$controller) {
 
   $controller('BaseController', { $scope: $scope });
   $scope.titulo='Regresion Porcentual';
+  $scope.ayuda="tabla de analisis de regresion porcentual de las especies sobre las cuales se realiza dicho estudio, separados por localidad";
 
 
   $scope.getlocalidades();

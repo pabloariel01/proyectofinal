@@ -28,10 +28,22 @@
 <div class="block">
     <div class="navbar navbar-inner block-header">
         <div class="muted pull-left"><b>{{titulo}}</b></div>
+        <div style="float: inline-end;">
+          <!-- {{ayuda}} -->
+          <a href data-toggle="tooltip" title={{ayuda}}>ayuda</a>
+          <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+                $('[data-toggle="tooltip"]').on('click',function(e){
+                  e.preventDefault();
+                })
+            });
+          </script>
+        </div>
     </div>
     <div class="form-group">
       <div class="row">
-          <label for="camps"> campañas:</label>
+          <label for="camps"> Acta:</label>
           <select  id="camps" ng-options="acta as acta.descripcion for acta in actas track by acta.id" ng-model="selected"></select>
       </div>
       <div class="row">
